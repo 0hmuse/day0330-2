@@ -1,0 +1,13 @@
+package com.example.demo.db;
+
+public class EmpManager {
+	
+	static {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+}

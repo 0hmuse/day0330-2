@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>메인화면</h2>
+<hr>
+<button id="btnAdd">상품등록</button>
+<button id="btnList">상품목록</button>
+</body>
+</html>

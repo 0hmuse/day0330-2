@@ -1,0 +1,17 @@
+package com.example.demo.db;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class GoodsManager {
+	
+	private SqlSessionFactory factory;
+	
+	static {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+}

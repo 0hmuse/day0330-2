@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+상품등록
+<form id="f">
+	상품번호 <input type="text" id="no" name="no">
+	상품이름
+	상품수량
+	상품가격
+	상품사진
+	상세설명
+</form>
+</body>
+</html>

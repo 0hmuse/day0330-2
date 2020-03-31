@@ -1,0 +1,20 @@
+package com.example.demo.db;
+
+import java.io.Reader;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class GoodsManager {
+	
+	private static SqlSessionFactory factory;
+	
+	static {
+		try {
+			Reader reader = 
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+}

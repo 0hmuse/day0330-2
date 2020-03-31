@@ -1,0 +1,17 @@
+package com.example.demo.db;
+
+import java.io.Reader;
+
+import org.apache.ibatis.io.Resources;
+
+public class EmpManager {
+	
+	static {
+		try {
+			Reader reader = Resources.getResourceAsReader("");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+}

@@ -1,0 +1,16 @@
+INDEX VERSION 1.131+C:\stsAOPTest\.metadata\.plugins\org.eclipse.jdt.core
+1902560820.index
+1048752369.index
+2879041728.index
+1245998411.index
+3573935887.index
+610752008.index
+2917479854.index
+2579450805.index
+2624193097.index
+2275152856.index
+4142823922.index
+3585429371.index
+3873515541.index
+1047567879.index
+730659235.index

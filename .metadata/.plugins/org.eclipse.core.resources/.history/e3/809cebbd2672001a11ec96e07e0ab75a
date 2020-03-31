@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<beans:bean id="javaMailSender">
+	
+	
+	</beans:bean>
+		
+	
+	</beans>
+
+
+   <bean id="manager" class="com.example.ioc.xml.OrderManager" init-method="init"> <!-- 파라메터 없이 생성자 생성  init-method 최초기동-->
+
+
+     <constructor-arg ref="kia"></constructor-arg> <!-- 생성자에 파라메터가 있는 경우 -->
+
+   </bean>
+
+</beans>

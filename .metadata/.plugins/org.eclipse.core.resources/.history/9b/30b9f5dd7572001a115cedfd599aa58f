@@ -1,0 +1,47 @@
+package com.example.demo.controller;
+
+import java.util.Random;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class TestController {
+	
+	   @Autowired
+	   private JavaMailSender mailSender;
+
+	   public void setJavaMailSender(JavaMailSender mailSender) {
+	      this.mailSender = mailSender;
+	   }
+
+	   //이메일 인증
+	  @RequestMapping("/mail.do")
+	  public void mail(String i_email)
+	  {
+	     mailSender.send(new MimeMessagePreparator() {
+	        public void prepare(MimeMessage mimeMessage) throws MessagingException {
+	          MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+	          message.setFrom("1992youngsoo@gmail.com");
+	          message.setTo(i_email);
+	          message.setSubject("가입 인증번호");
+	          Random rd = new Random(10);
+	          String a = ""+rd.nextInt();
+	          message.setText(a, true);
+	          //message.addInline("myLogo", new ClassPathResource("static/mylogo.gif"));
+	          //message.addAttachment("myDocument.pdf", new ClassPathResource("doc/myDocument.pdf"));
+	        }
+	      });
+		}
+  
+	  	//문자 인증
+}

@@ -1,0 +1,12 @@
+package com.example.demo.controller;
+
+import org.springframework.scheduling.annotation.Scheduled;
+
+public class ScheduleController {
+
+	@Scheduled(cron="0, 40, 12, 30, * , *, ?")
+	public void pro(String name, int sal, int comm)
+	{
+		System.out.println(name + "님" + "이번달 수령액은" + (sal + comm) + "입니다");
+	}
+}

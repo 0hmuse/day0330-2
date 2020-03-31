@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$("#sms").click(function(){
+		$("#f").empty();
+		var input = $("<input type='text' id='i_sms' name='i_sms'>");
+		$("#f").append(input);
+		var sdata = $("#f").serialize();
+		$("#send").click("/sms.do",{data:sdata,success:function(r){
+			alert(sdata);
+		}})
+	});
+	
+	$("#email").click(function(){
+		var input = $("<input type='text' id='i_email' name='i_email'>");
+		$("#f").append(input);
+		var edata = $("#f").serialize();
+		$("#send").click("/email.do",{data:edata,success:function(r){
+			alert("버튼누름");
+			alert(edata);
+		}})
+	});
+})
+
+</script>
+</head>
+<body>
+<h2>인증 방법 선택</h2>
+<button id="sms">문자 인증</button>
+<button id="email">이메일 인증</button>
+<form id="f">
+</form>
+	<button id="send">인증번호 발송</button>
+</body>
+</html>

@@ -1,0 +1,9 @@
+package com.example.demo.controller;
+
+public class A {
+	public void a() {
+		String springVersion = org.springframework.core.SpringVersion.getVersion();
+
+		System.out.println("스프링 프레임워크 버전 : " + springVersion);
+	}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var r;//인증번호 확인
+	
+$("#btn_email").click(function(){
+	var data = {in1:$("#in1").val()}
+	$.ajax("/email.do",{data:data,success:function(r){
+		alert("aa");
+		r=r;
+	}})
+});
+	
+$("#ebc2").click(function(){
+	var in2 = $("#in2").val();
+	if(r == in2){
+		alert("확인");
+	}
+})
+
+
+
+
+// 	$("#btn_phone").click(function(){
+// 		$("#check").empty();
+// 		var i = $("<input type='text' id='in' name='in'>");
+// 		var pb = $("<button id='pbc'>인증번호 보내기</button>");
+// 		$("#check").append(i);
+// 		$("body").append(pb);
+		
+// 		$("#pbc").on("click",function(){
+// 			var data = $("#g").serialize();
+// 			$.ajax("/email.do",{data:data,success:function(r){
+// 				if(r.equal("인증성공")){
+// 					var add = $("<button id='add'>가입하기<button>")
+					
+// 					$("#add").on("click",function(){
+// 						var data = $("#f").serialize();
+// 						$.ajax("/insert.do",{data:data,success:function(r){
+// 							alert(r);
+// 						}})
+// 					})
+// 					}
+// 				}
+// 			})
+// 		});
+// 	})
+		
+})
+</script>
+</head>
+<body>
+	<h2>회원 가입</h2>
+	<hr>
+	<form id="f">
+		아이디 : <input type="text" id="id" name="id"><br>
+		암호 : <input type="text" id="pwd" name="pwd"><br>
+		이름 : <input type="text" id="name" name="name"><br>
+		전화번호 : <input type="text" id="tel" name="tel"><br>
+		나이 : <input type="text" id="age" name="age"><br>
+		<br>
+	</form>
+		인증방법 선택<br>
+		
+		<form id="g">
+				<input type='text' id='in1' name='in1'>
+		</form>		
+				<button id="btn_email">이메일 인증</button>
+				<button id="btn_phone">핸드폰 인증</button>
+				<br>
+				
+		<form id="h">		
+				<input type='text' id='in2' name='in2'>
+		</form>
+				<button id='ebc2'>인증번호 확인</button><br>
+				
+		<button id="btnAdd">회원가입하기</button>
+	
+</body>
+</html>
+

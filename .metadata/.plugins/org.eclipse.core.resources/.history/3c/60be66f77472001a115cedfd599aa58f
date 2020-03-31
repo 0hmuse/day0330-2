@@ -1,0 +1,14 @@
+package com.example.demo.vo;
+
+public class MemberVo {
+	private String id;
+	private String pwd;
+	private String name;
+	private String tel;
+	private int age;
+}
+ID                                        NOT NULL VARCHAR2(20)
+NAME                                               VARCHAR2(20)
+TEL                                                VARCHAR2(20)
+AGE                                                NUMBER
+PWD                                                VARCHAR2(20)

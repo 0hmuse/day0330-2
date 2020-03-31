@@ -1,0 +1,11 @@
+package com.example.demo.advice;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class BitAdvice {
+	
+	@Pointcut("excution(public * com.example.demo.)")
+	public void cmethod() {}
+}

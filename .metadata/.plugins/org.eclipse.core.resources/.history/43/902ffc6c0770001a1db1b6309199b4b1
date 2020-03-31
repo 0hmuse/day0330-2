@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var arr;
+	var idx;
+	
+	
+	
+	//처음 접속하면 모든 리스트 출력
+	listAll()
+	
+	//모든리스트 메소드
+	function listAll(){
+		var th1 = $("<th>상품번호</th>");
+		var th2 = $("<th>상품명</th>");
+		var th3 = $("<th>수량</th>");
+		var th4 = $("<th>가격</th>");
+		var th5 = $("<th>사진</th>");
+		var th6 = $("<th>상세설명</th>");
+		var btn = $("<button id='btnAdd'>상품등록</button>")
+		$("#tb").append(th1,th2,th3,th4,th5,th6,btn);
+		$.getJSON("/listAll",function(data){
+			arr = data;
+			$.each(data,function(idx,goods){
+				
+				var tr = $("<tr></tr>").attr("idx",idx);
+				var no = $("<td></td>").html(goods.no);
+				var item = $("<td></td>").html(goods.item)
+				var qty = $("<td></td>").html(goods.qty);
+				var price = $("<td></td>").html(goods.price);
+				var img = $("<img/>").attr({"src":"/img/"+goods.fname, "width":100, "height":100});
+				var fname = $("<td></td>").append(img);
+				var detail = $("<td></td>").html(goods.detail);
+				var btnDel = $("<button id='del'>삭제</button>").attr("idx",idx);
+				var aDel = $("<td></td>").append(btnDel);
+				var btnUp = $("<button id='up'>수정</button>").attr("idx",idx);
+				var aUp = $("<td></td>").append(btnㅕㅔ);
+				tr.append(no,item,qty,price,fname,detail,aDel,aUp);
+				$("#tb").append(tr);
+				
+				$("*#del").on("click",function(){
+					idx = $(this).attr("idx");
+					var data = {no:arr[idx].no};
+					$.ajax("/delete",{data:data,success:function(r){
+					}})
+				})
+			});
+		});	
+	}
+	
+	
+	
+	$("#btnAdd").on("click",function(){
+		$("#tb").empty();
+		var th1 = $("<th>상품번호</th>");
+		var th2 = $("<th>상품명</th>");
+		var th3 = $("<th>수량</th>");
+		var th4 = $("<th>가격</th>");
+		var th5 = $("<th>사진</th>");
+		var th6 = $("<th>상세설명</th>");
+		$("#tb").append(th1,th2,th3,th4,th5,th6);
+		var i_no = $("<td><input type=text id='no' name='no'></td>")
+		var i_item = $("<td><input type=text id='item' name='item'></td>")
+		var i_qty = $("<td><input type=text id='qty' name='qty'></td>")
+		var i_price = $("<td><input type=text id='price' name='price'></td>")
+		var i_fname = $("<td><input type=text id='fname' name='fname'></td>")
+		var i_detail = $("<td><input type=text id='detail' name='detail'></td>")
+		var i_btn = $("<button id='add'>등록</button>");
+			
+		var title = $("#title").html("상품등록");
+		var i_tr = $("<tr></tr>").append(i_no,i_item,i_qty,i_price,i_fname,i_detail,i_btn);
+		$("#tb").append(i_tr);
+		
+		$("#add").on("click",function(){
+			var data = $("#f").serialize();
+			//var data = {no:i_no,item:i_item,qty:i_qty,price:i_price,fname:i_fname,detial:i_detail};
+			//alert(data);
+			$.ajax("/insert",{data:data,success:function(r){
+				alert(r);
+			}})
+		})
+	})
+	
+});
+</script>
+</head>
+<body>
+<h2 id="title">상품 목록</h2>
+<form id="f">
+	<table id="tb" border="1">
+			
+	</table>
+</form>
+
+
+</body>
+</html>

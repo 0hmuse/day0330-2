@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#check").click(function(){
+		var data = #("#f").serialize();
+		
+		$("#sms").click("/sms.do",{data:data,function(){
+			
+		}})
+		
+		$("#email").click("/email.do",{data:data,function(){
+			
+		}})
+	})
+	
+	
+	
+})
+
+</script>
+</head>
+<body>
+
+<h2>인증 방법 선택</h2>
+<button id="check">확인</button>
+<form id="f">
+	<input type="text" id="in" name="in">
+</form>
+
+	<button id="sms">문자 인증</button>
+	<button id="email">이메일 인증</button>
+</body>
+</html>

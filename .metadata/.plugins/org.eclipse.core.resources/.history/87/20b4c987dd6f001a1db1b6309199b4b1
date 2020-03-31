@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnAjax").clcik(function(){
+		$.ajax("/hello.do",{success:function(r){
+			$("#msg").html(r);
+		}})
+	})
+})
+</script>
+</head>
+<body>
+	<button id="btnAjax">Ajax 요청</button>
+	<h2 id="msg"></h2>
+</body>
+</html>
